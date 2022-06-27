@@ -1,0 +1,126 @@
+﻿<Window x:Class="InicioSesion.Views.AgregarView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InicioSesion.Views"
+        xmlns:vm="clr-namespace:InicioSesion.ViewModels"
+        mc:Ignorable="d"
+        Title="Minecraft Launcher" Height="700" Width="1000">
+    <Window.Background>
+        <ImageBrush ImageSource="/Views/res/fondoInicioSesion.png" 
+                    Stretch="UniformToFill">
+        </ImageBrush>
+    </Window.Background>
+    <Window.DataContext>
+        <vm:IniciarSesionViewModel></vm:IniciarSesionViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Border Width="700"
+                Height="450"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                CornerRadius="5"
+                Background="#262626">
+
+            <Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="275"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Image Source="/Views/res/appLogo.png"
+                           RenderOptions.BitmapScalingMode="HighQuality"
+                               Width="250"
+                               HorizontalAlignment="Right">
+
+                        </Image>
+
+                    </Grid>
+                    <Grid Margin="25,30,50,25" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="23*"/>
+                            <RowDefinition Height="377*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.RowSpan="2"
+                                    Width="300">
+                            <Label Foreground="White"
+                               FontWeight="Bold">MOJANG ACCOUNT (EMAIL)</Label>
+                            <TextBox Text="{Binding Correo}">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Label Foreground="White"
+                               FontWeight="Bold"
+                               Margin="0,10,0,0">PASSWORD</Label>
+                            <TextBox Text="{Binding Password}">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <Label Foreground="White"
+                               FontWeight="Bold"
+                               Margin="0,10,0,0">NAME</Label>
+                            <TextBox Text="{Binding Nombre}">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <Label Foreground="White"
+                               FontWeight="Bold"
+                               Margin="0,10,0,0">ADDRESS</Label>
+                            <TextBox Text="{Binding Direccion}">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+
+                            <Button Command="{Binding AgregarCommand}" 
+                                Margin="0,20,0,0"
+                                Height="45"
+                                BorderThickness="3"
+                                BorderBrush="#006f3f"
+                                Background="#008a4c"
+                                Foreground="White"
+                                FontSize="25"
+                                FontWeight="Bold"
+                                FontFamily="../Views/res/#Minecrafter Reg">Register
+                                <Button.Effect>
+                                    <DropShadowEffect BlurRadius="20"
+                                                  Color="#131313">
+
+                                    </DropShadowEffect>
+                                </Button.Effect>
+                            </Button>
+                            <TextBlock Text="{Binding Error}"
+                                   Foreground="Crimson"
+                                   Margin="3"
+                                   Padding="3"
+                                   FontSize="14"
+                                   HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   FontSize="14">&#x3c; Regresar</TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
